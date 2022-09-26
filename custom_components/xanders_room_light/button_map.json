@@ -1,0 +1,24 @@
+{
+    "on-press": [
+        [ [ "RightLight", "light.gameroom_group", 255 ],       [ "RightLight", "light.gameroom_lamp", 255 ] ],
+        [ [ "RightLight", "light.gameroom_group", 0   ],       [ "RightLight", "light.gameroom_lamp", 255 ] ],
+        [ [ "RightLight", "light.gameroom_group", "Vivid" ],   [ "RightLight", "light.gameroom_lamp", 0 ] ]
+    ],
+    "up-press": [
+        [ [ "RightLight", "light.gameroom_group", 192 ],       [ "RightLight", "light.gameroom_lamp", 192 ] ],
+        [ [ "RightLight", "light.gameroom_group", 0   ],       [ "RightLight", "light.gameroom_lamp", 192 ] ],
+        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_blue"  ],            [ "RightLight", "light.gameroom_lamp", 0 ] ],
+        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_green" ],            [ "RightLight", "light.gameroom_lamp", 0 ] ],
+        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_red"   ],            [ "RightLight", "light.gameroom_lamp", 0 ] ]
+    ],
+    "down-press": [
+        [ [ "RightLight", "light.gameroom_group", 75  ],       [ "RightLight", "light.gameroom_lamp", 75  ] ],
+        [ [ "RightLight", "light.gameroom_group", 0   ],       [ "RightLight", "light.gameroom_lamp", 75  ] ],
+        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_blue_dim"  ],        [ "RightLight", "light.gameroom_lamp", 0 ] ],
+        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_green_dim" ],        [ "RightLight", "light.gameroom_lamp", 0 ] ],
+        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_red_dim"   ],        [ "RightLight", "light.gameroom_lamp", 0 ] ]
+    ],
+    "off-press": [
+        [ [ "RightLight", "light.gameroom_group", 0 ],         [ "RightLight", "light.gameroom_lamp", 0 ] ]
+    ]
+}
