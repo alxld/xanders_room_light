@@ -1,6 +1,6 @@
 """Platform for light integration"""
 from __future__ import annotations
-import logging, json
+import logging, json, sys
 
 # from enum import Enum
 # import homeassistant.helpers.config_validation as cv
@@ -44,16 +44,22 @@ from homeassistant.const import (
     STATE_ON,
     STATE_UNAVAILABLE,
 )
-from .right_light import RightLight
+
+sys.path.append("custom_components/right_light")
+from right_light import RightLight
 
 from . import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
-light_entity = "light.gameroom_group"
-lamp_entity = "light.gameroom_lamp"
+light_entity = "light.xanders_room_group"
+strip_n_entity = "light.xanders_light_strip_n"
+strip_s_entity = "light.xanders_light_strip_s"
+bar_e_entity = "light.xanders_light_bar_e"
+bar_w_entity = "light.xanders_light_bar_w"
+
 # harmony_entity = "remote.theater_harmony_hub"
-switch_action = "zigbee2mqtt/Gameroom Switch/action"
+switch_action = "zigbee2mqtt/Xanders Switch/action"
 # motion_sensor_action = "zigbee2mqtt/Gameroom Motion Sensor"
 brightness_step = 43
 motion_sensor_brightness = 192
@@ -73,7 +79,7 @@ async def async_setup_platform(
     # We only want this platform to be set up via discovery.
     if discovery_info is None:
         return
-    ent = GameroomLight()
+    ent = XandersRoomLight()
     add_entities([ent])
 
     @callback
@@ -108,14 +114,14 @@ async def async_setup_platform(
         )
 
 
-class GameroomLight(LightEntity):
-    """Gameroom Light."""
+class XandersRoomLight(LightEntity):
+    """XandersRoom Light."""
 
     def __init__(self) -> None:
-        """Initialize Gameroom Light."""
+        """Initialize XandersRoom Light."""
         self._light = light_entity
         self._lamp = lamp_entity
-        self._name = "Gameroom"
+        self._name = "XandersRoom"
         # self._state = 'off'
         self._brightness = 0
         self._brightness_override = 0
@@ -425,7 +431,7 @@ class GameroomLight(LightEntity):
         # self.hass.states.async_set(f"light.{self._name}", f"ENT: {payload}")
 
         button_map_data = json.load(
-            open("custom_components/gameroom_light/button_map.json")
+            open("custom_components/xanders_room_light/button_map.json")
         )
 
         if payload in button_map_data.keys():

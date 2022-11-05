@@ -1,24 +1,22 @@
 {
     "on-press": [
-        [ [ "RightLight", "light.gameroom_group", 255 ],       [ "RightLight", "light.gameroom_lamp", 255 ] ],
-        [ [ "RightLight", "light.gameroom_group", 0   ],       [ "RightLight", "light.gameroom_lamp", 255 ] ],
-        [ [ "RightLight", "light.gameroom_group", "Vivid" ],   [ "RightLight", "light.gameroom_lamp", 0 ] ]
+        [ [ "RightLight", "light.xanders_room_group", 255 ],  [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ] ],
+        [ [ "RightLight", "light.xanders_room_group", "Vivid" ] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "One"], [ "RightLight", "light.xanders_light_strip_s", "One"], [ "RightLight", "light.xanders_light_bar_e", "Two"], [ "RightLight", "light.xanders_light_bar_w", "Two"] ]
     ],
     "up-press": [
-        [ [ "RightLight", "light.gameroom_group", 192 ],       [ "RightLight", "light.gameroom_lamp", 192 ] ],
-        [ [ "RightLight", "light.gameroom_group", 0   ],       [ "RightLight", "light.gameroom_lamp", 192 ] ],
-        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_blue"  ],            [ "RightLight", "light.gameroom_lamp", 0 ] ],
-        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_green" ],            [ "RightLight", "light.gameroom_lamp", 0 ] ],
-        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_red"   ],            [ "RightLight", "light.gameroom_lamp", 0 ] ]
+        [ [ "RightLight", "light.xanders_room_group", 192 ] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], ["Scene", "scene.xanders_room_blue"] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], ["Scene", "scene.xanders_room_green"] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], ["Scene", "scene.xanders_room_red"] ]
     ],
     "down-press": [
-        [ [ "RightLight", "light.gameroom_group", 75  ],       [ "RightLight", "light.gameroom_lamp", 75  ] ],
-        [ [ "RightLight", "light.gameroom_group", 0   ],       [ "RightLight", "light.gameroom_lamp", 75  ] ],
-        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_blue_dim"  ],        [ "RightLight", "light.gameroom_lamp", 0 ] ],
-        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_green_dim" ],        [ "RightLight", "light.gameroom_lamp", 0 ] ],
-        [ [ "RightLight", "light.gameroom_group", "Disable" ], [ "Scene", "scene.gameroom_red_dim"   ],        [ "RightLight", "light.gameroom_lamp", 0 ] ]
+        [ [ "RightLight", "light.xanders_room_group", 75 ] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], ["Scene", "scene.xanders_room_blue_dim"] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], ["Scene", "scene.xanders_room_green_dim"] ],
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], ["Scene", "scene.xanders_room_red_dim"] ]
     ],
     "off-press": [
-        [ [ "RightLight", "light.gameroom_group", 0 ],         [ "RightLight", "light.gameroom_lamp", 0 ] ]
+        [ [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ], [ "RightLight", "light.xanders_room_group", 0 ] ]
     ]
 }
