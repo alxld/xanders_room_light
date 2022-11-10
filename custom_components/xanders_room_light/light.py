@@ -54,10 +54,10 @@ from . import DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 light_entity = "light.xanders_room_group"
-# strip_n_entity = "light.xanders_light_strip_n"
-# strip_s_entity = "light.xanders_light_strip_s"
-# bar_e_entity = "light.xanders_light_bar_e"
-# bar_w_entity = "light.xanders_light_bar_w"
+strip_n_entity = "light.xanders_light_strip_n"
+strip_s_entity = "light.xanders_light_strip_s"
+bar_e_entity = "light.xanders_light_bar_e"
+bar_w_entity = "light.xanders_light_bar_w"
 
 # harmony_entity = "remote.theater_harmony_hub"
 switch_action = "zigbee2mqtt/Xanders Switch/action"
@@ -121,6 +121,10 @@ class XandersRoomLight(LightEntity):
     def __init__(self) -> None:
         """Initialize XandersRoom Light."""
         self._light = light_entity
+        self._light_bar_e = bar_e_entity
+        self._light_bar_w = bar_w_entity
+        self._light_strip_n = strip_n_entity
+        self._light_strip_s = strip_s_entity
         self._name = "XandersRoom"
         # self._state = 'off'
         self._brightness = 0
@@ -169,6 +173,10 @@ class XandersRoomLight(LightEntity):
     async def async_added_to_hass(self) -> None:
         """Instantiate RightLight"""
         self._rightlight = RightLight(self._light, self.hass)
+        self._rightlight_be = RightLight(self._light_bar_e, self.hass)
+        self._rightlight_bw = RightLight(self._light_bar_w, self.hass)
+        self._rightlight_sn = RightLight(self._light_strip_n, self.hass)
+        self._rightlight_ss = RightLight(self._light_strip_s, self.hass)
 
         #        #temp = self.hass.states.get(harmony_entity).new_state
         #        #_LOGGER.error(f"Harmony state: {temp}")
@@ -336,11 +344,19 @@ class XandersRoomLight(LightEntity):
             data[ATTR_TRANSITION] = kwargs[ATTR_TRANSITION]
 
         if rl:
+            await self._rightlight_be.disable()
+            await self._rightlight_bw.disable()
+            await self._rightlight_sn.disable()
+            await self._rightlight_ss.disable()
             await self._rightlight.turn_on(
                 brightness=self._brightness,
                 brightness_override=self._brightness_override,
             )
         else:
+            await self._rightlight_be.disable()
+            await self._rightlight_bw.disable()
+            await self._rightlight_sn.disable()
+            await self._rightlight_ss.disable()
             await self._rightlight.turn_on_specific(data)
 
         self.async_schedule_update_ha_state(force_refresh=True)
@@ -350,6 +366,10 @@ class XandersRoomLight(LightEntity):
         self._is_on = True
         self._brightness = 255
         self.switched_on = True
+        await self._rightlight_be.disable()
+        await self._rightlight_bw.disable()
+        await self._rightlight_sn.disable()
+        await self._rightlight_ss.disable()
         await self._rightlight.turn_on(mode=self._mode)
         self.async_schedule_update_ha_state(force_refresh=True)
 
@@ -360,6 +380,10 @@ class XandersRoomLight(LightEntity):
         self._is_on = False
         self.switched_on = False
         await self._rightlight.disable_and_turn_off()
+        await self._rightlight_be.disable_and_turn_off()
+        await self._rightlight_bw.disable_and_turn_off()
+        await self._rightlight_sn.disable_and_turn_off()
+        await self._rightlight_ss.disable_and_turn_off()
         self.async_schedule_update_ha_state(force_refresh=True)
 
     async def up_brightness(self, **kwargs) -> None:
@@ -466,12 +490,20 @@ class XandersRoomLight(LightEntity):
 
                     if ent == self._light:
                         rl = self._rightlight
+                    elif ent == self._light_bar_e:
+                        rl = self._rightlight_be
+                    elif ent == self._light_bar_w:
+                        rl = self._rightlight_bw
+                    elif ent == self._light_strip_n:
+                        rl = self._rightlight_sn
+                    elif ent == self._light_strip_s:
+                        rl = self._rightlight_ss
                     else:
                         _LOGGER.error(
                             f"{self_name} error - unknown entity in button_map.json: {ent}"
                         )
                         _LOGGER.error(
-                            f"{self_name}         should be either {self._light} or {self._lamp}"
+                            f"{self_name}         should be either {self._light}, {self._light_bar_e}, {self._light_bar_w}, {self._light_strip_n}, {self._light_strip_s}"
                         )
                         continue
 
