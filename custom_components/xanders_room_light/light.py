@@ -54,10 +54,10 @@ from . import DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 light_entity = "light.xanders_room_group"
-strip_n_entity = "light.xanders_light_strip_n"
-strip_s_entity = "light.xanders_light_strip_s"
-bar_e_entity = "light.xanders_light_bar_e"
-bar_w_entity = "light.xanders_light_bar_w"
+# strip_n_entity = "light.xanders_light_strip_n"
+# strip_s_entity = "light.xanders_light_strip_s"
+# bar_e_entity = "light.xanders_light_bar_e"
+# bar_w_entity = "light.xanders_light_bar_w"
 
 # harmony_entity = "remote.theater_harmony_hub"
 switch_action = "zigbee2mqtt/Xanders Switch/action"
@@ -121,7 +121,6 @@ class XandersRoomLight(LightEntity):
     def __init__(self) -> None:
         """Initialize XandersRoom Light."""
         self._light = light_entity
-        self._lamp = lamp_entity
         self._name = "XandersRoom"
         # self._state = 'off'
         self._brightness = 0
@@ -170,7 +169,6 @@ class XandersRoomLight(LightEntity):
     async def async_added_to_hass(self) -> None:
         """Instantiate RightLight"""
         self._rightlight = RightLight(self._light, self.hass)
-        self._rightlight2 = RightLight(self._lamp, self.hass)
 
         #        #temp = self.hass.states.get(harmony_entity).new_state
         #        #_LOGGER.error(f"Harmony state: {temp}")
@@ -342,13 +340,8 @@ class XandersRoomLight(LightEntity):
                 brightness=self._brightness,
                 brightness_override=self._brightness_override,
             )
-            await self._rightlight2.turn_on(
-                brightness=self._brightness,
-                brightness_override=self._brightness_override,
-            )
         else:
             await self._rightlight.turn_on_specific(data)
-            await self._rightlight2.turn_on_specific(data)
 
         self.async_schedule_update_ha_state(force_refresh=True)
 
@@ -358,7 +351,6 @@ class XandersRoomLight(LightEntity):
         self._brightness = 255
         self.switched_on = True
         await self._rightlight.turn_on(mode=self._mode)
-        await self._rightlight2.turn_on(mode=self._mode)
         self.async_schedule_update_ha_state(force_refresh=True)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
@@ -368,7 +360,6 @@ class XandersRoomLight(LightEntity):
         self._is_on = False
         self.switched_on = False
         await self._rightlight.disable_and_turn_off()
-        await self._rightlight2.disable_and_turn_off()
         self.async_schedule_update_ha_state(force_refresh=True)
 
     async def up_brightness(self, **kwargs) -> None:
@@ -475,8 +466,6 @@ class XandersRoomLight(LightEntity):
 
                     if ent == self._light:
                         rl = self._rightlight
-                    elif ent == self._lamp:
-                        rl = self._rightlight2
                     else:
                         _LOGGER.error(
                             f"{self_name} error - unknown entity in button_map.json: {ent}"
