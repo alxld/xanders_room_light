@@ -2,7 +2,7 @@
     "on-press": [
         [ [ "RightLight", "light.xanders_room_group", 255 ],  [ "RightLight", "light.xanders_light_strip_n", "Disable" ], [ "RightLight", "light.xanders_light_strip_s", "Disable" ], [ "RightLight", "light.xanders_light_bar_e", "Disable" ], [ "RightLight", "light.xanders_light_bar_w", "Disable" ] ],
         [ [ "RightLight", "light.xanders_room_group", "Vivid" ] ],
-        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "One"], [ "RightLight", "light.xanders_light_strip_s", "One"], [ "RightLight", "light.xanders_light_bar_e", "Two"], [ "RightLight", "light.xanders_light_bar_w", "Two"] ]
+        [ [ "RightLight", "light.xanders_room_group", "Disable"], [ "RightLight", "light.xanders_light_strip_n", "One"], [ "RightLight", "light.xanders_light_strip_s", "Two"], [ "RightLight", "light.xanders_light_bar_e", "One"], [ "RightLight", "light.xanders_light_bar_w", "Two"] ]
     ],
     "up-press": [
         [ [ "RightLight", "light.xanders_room_group", 192 ] ],
