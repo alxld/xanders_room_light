@@ -34,6 +34,7 @@ class XandersRoomLight(NewLight):
             "Xander's Room Room", domain=DOMAIN, debug=False, debug_rl=False
         )
 
+        self.entities["light.xanders_room_top_group"] = None
         self.entities["light.xanders_room_group"] = None
         self.entities["light.xanders_light_panel"] = None
         self.entities["light.xanders_gradient_strip"] = None
