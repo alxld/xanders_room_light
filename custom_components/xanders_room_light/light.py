@@ -8,7 +8,7 @@ from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 from . import DOMAIN
 
 sys.path.append("custom_components/new_light")
-from new_light import NedLight
+from new_light import NewLight
 
 
 async def async_setup_platform(
@@ -31,14 +31,14 @@ class XandersRoomLight(NewLight):
     def __init__(self) -> None:
         """Initialize XandersRoom Light."""
         super(XandersRoomLight, self).__init__(
-            "Xander's Room Room", domain=DOMAIN, debug=False, debug_rl=False
+            "Xander's Room", domain=DOMAIN, debug=False, debug_rl=False
         )
 
-        self.entities["light.xanders_room_top_group"] = None
         self.entities["light.xanders_room_group"] = None
+        # self.entities["light.xanders_room_top_group"] = None
         self.entities["light.xanders_light_panel"] = None
         self.entities["light.xanders_gradient_strip"] = None
         self.entities["light.xanders_light_bar_e"] = None
         self.entities["light.xanders_light_bar_w"] = None
 
-        self.switch = "Xanders Switch"
+        self.switch = "Xander's Room Switch"
