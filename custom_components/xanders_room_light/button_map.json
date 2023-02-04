@@ -3,22 +3,22 @@
         [
             [
                 "RightLight",
-                "light.xanders_room_top_group",
+                "light.xander_s_room_top_group",
                 "Disable"
             ],
             [
                 "RightLight",
-                "light.xanders_room_gradient_strip",
+                "light.xander_s_room_gradient_strip",
                 "One"
             ],
             [
                 "RightLight",
-                "light.xanders_room_light_bar_e",
+                "light.xander_s_room_light_bar_e",
                 "One"
             ],
             [
                 "RightLight",
-                "light.xanders_room_light_bar_w",
+                "light.xander_s_room_light_bar_w",
                 "Two"
             ],
             [
@@ -30,22 +30,22 @@
         [
             [
                 "RightLight",
-                "light.xanders_room_top_group",
+                "light.xander_s_room_top_group",
                 "Vivid"
             ],
             [
                 "RightLight",
-                "light.xanders_room_gradient_strip",
+                "light.xander_s_room_gradient_strip",
                 "Disable"
             ],
             [
                 "RightLight",
-                "light.xanders_room_light_bar_e",
+                "light.xander_s_room_light_bar_e",
                 "Disable"
             ],
             [
                 "RightLight",
-                "light.xanders_room_light_bar_w",
+                "light.xander_s_room_light_bar_w",
                 "Disable"
             ],
             [
