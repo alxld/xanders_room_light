@@ -41,5 +41,5 @@ class XandersRoomLight(NewLight):
         self.entities["light.xander_s_light_bar_e"] = None
         self.entities["light.xander_s_light_bar_w"] = None
 
-        # self.switch = "Xander's Room Switch"
-        self.switch = "00:17:88:01:08:74:dc:b4"
+        self.switch = "Xander's Room Switch"
+        # self.switch = "00:17:88:01:08:74:dc:b4"
